@@ -20,8 +20,14 @@ export const Opacity = styled.View`
 export const Container = styled.View`
   justify-content: center;
   align-items: center;
-  position: absolute;
   width: 75%;
+`;
+
+export const Header = styled.View`
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 40px;
 `;
 
 export const LogoImage = styled.Image`
@@ -32,28 +38,10 @@ export const FormContainer = styled.View`
   width: 100%;
 `;
 
-export const ForgotPasswordButton = styled.TouchableOpacity`
-  width: 100%;
-  margin-bottom: 36px;
-`;
-
-export const TextForgotPassword = styled.Text`
-  text-align: right;
-  text-transform: uppercase;
+export const Description = styled.Text`
   color: #fff;
-  margin-top: 10px;
+  margin-top: -60px;
+  margin-bottom: 60px;
 `;
 
-export const RegisterButton = styled.TouchableOpacity`
-  margin-top: 30px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const TextButton = styled.Text`
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 14px;
-  margin-left: 5px;
-`;
+export const BackButton = styled.TouchableOpacity``;

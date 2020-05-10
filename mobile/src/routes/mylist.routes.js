@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 
 export default function MyListRoutes() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="MyList" component={MyList} />
       <Stack.Screen name="List" component={List} />
     </Stack.Navigator>

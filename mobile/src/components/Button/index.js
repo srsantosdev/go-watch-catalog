@@ -1,11 +1,11 @@
 import React from "react";
 
-import { StyledButton } from "./styles";
+import { StyledButton, ButtonText } from "./styles";
 
-const Button = ({ content, ...props }) => {
+const Button = ({ children, ...props }) => {
   return (
     <StyledButton {...props}>
-      <ButtonText>{content}</ButtonText>
+      <ButtonText>{children}</ButtonText>
     </StyledButton>
   );
 };

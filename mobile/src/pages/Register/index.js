@@ -8,10 +8,9 @@ import {
   Container,
   LogoImage,
   FormContainer,
-  ForgotPasswordButton,
-  RegisterButton,
-  TextButton,
-  TextForgotPassword,
+  Description,
+  Header,
+  BackButton,
 } from "./styles";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -22,34 +21,33 @@ import Button from "./../../components/Button";
 import background from "./../../assets/images/AuthImage.jpg";
 import logo from "./../../assets/logo.png";
 
-const Login = () => {
+const Register = () => {
   const navigation = useNavigation();
 
   return (
     <BackgroundImage source={background}>
       <StatusBar barStyle="light-content" backgroundColor="#000" />
       <Opacity />
+      <Header>
+        <BackButton onPress={() => navigation.goBack()}>
+          <Ionicons name="ios-arrow-round-back" size={40} color="#fff" />
+        </BackButton>
+      </Header>
       <Container>
         <LogoImage source={logo} />
+
+        <Description>Cadastre-se</Description>
         <FormContainer>
+          <Input placeholder="Nome Completo" autoFocus />
+          <Input placeholder="E-mail" keyboardType="email-address" />
           <Input placeholder="Usuário" />
           <Input placeholder="Senha" secureTextEntry />
         </FormContainer>
-        <ForgotPasswordButton
-          onPress={() => navigation.navigate("ForgotPassword")}
-        >
-          <TextForgotPassword>Esqueceu a senha?</TextForgotPassword>
-        </ForgotPasswordButton>
 
-        <Button onPress={() => navigation.navigate("App")}>Entrar</Button>
-
-        <RegisterButton onPress={() => navigation.navigate("Register")}>
-          <Ionicons name="ios-log-in" size={20} color="#fff" />
-          <TextButton>Não tenho cadastro</TextButton>
-        </RegisterButton>
+        <Button>Cadastrar</Button>
       </Container>
     </BackgroundImage>
   );
 };
 
-export default Login;
+export default Register;
