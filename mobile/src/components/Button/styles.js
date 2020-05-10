@@ -14,4 +14,5 @@ export const ButtonText = styled.Text`
   font-size: 16px;
   text-transform: uppercase;
   color: #fff;
+  font-family: "Roboto-Regular"
 `;

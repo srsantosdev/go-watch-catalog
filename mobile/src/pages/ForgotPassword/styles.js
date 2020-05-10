@@ -42,6 +42,7 @@ export const Description = styled.Text`
   color: #fff;
   margin-top: -60px;
   margin-bottom: 60px;
+  font-family: "Roboto-Regular";
 `;
 
 export const BackButton = styled.TouchableOpacity``;

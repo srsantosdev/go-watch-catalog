@@ -42,6 +42,7 @@ export const TextForgotPassword = styled.Text`
   text-transform: uppercase;
   color: #fff;
   margin-top: 10px;
+  font-family: "Roboto-Regular";
 `;
 
 export const RegisterButton = styled.TouchableOpacity`
@@ -56,4 +57,5 @@ export const TextButton = styled.Text`
   text-transform: uppercase;
   font-size: 14px;
   margin-left: 5px;
+  font-family: "Roboto-Regular";
 `;

@@ -9,4 +9,5 @@ export const TextInput = styled.TextInput`
   color: #fff;
   margin-bottom:10px;
   padding: 17px 14px;
+  font-family: "Roboto-Regular";
 `;

@@ -15,6 +15,7 @@ const Tabs = createBottomTabNavigator();
 
 const App = () => (
   <Tabs.Navigator
+    backBehavior="none"
     tabBarOptions={{
       activeTintColor: "#fff",
       inactiveTintColor: "#15514E",
@@ -27,7 +28,7 @@ const App = () => (
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         zIndex: 50,
-        borderTopWidth: 0, 
+        borderTopWidth: 0,
       },
     }}
   >

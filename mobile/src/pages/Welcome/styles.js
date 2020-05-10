@@ -36,6 +36,7 @@ export const Description = styled.Text`
   margin-top: 35px;
   font-size: 14px;
   text-align: center;
+  font-family: 'Roboto-Regular';
 `;
 
 export const StartButton = styled.TouchableOpacity`
@@ -58,4 +59,5 @@ export const ButtonDescription = styled.Text`
   text-transform: uppercase;
   color: #fff;
   margin-top: 10px;
+  font-family: "Roboto-Medium";
 `;
