@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-
+import { useNavigation } from "@react-navigation/native";
 import randomColors from "./../../utils/randomColors";
 
 import {
@@ -26,6 +26,8 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Home = () => {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <StatusBar barStyle="light-content" backgroundColor="#161719" />
@@ -73,7 +75,7 @@ const Home = () => {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
         >
-          <CardItems>
+          <CardItems onPress={() => navigation.navigate("Detail")}>
             <ImageMovie />
           </CardItems>
           <CardItems>
