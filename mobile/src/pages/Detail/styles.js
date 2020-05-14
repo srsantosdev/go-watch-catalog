@@ -15,7 +15,7 @@ export const Image = styled.Image``;
 
 export const Box = styled.View`
   padding: 30px 20px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 `;
 
 export const ContainerChips = styled.View`

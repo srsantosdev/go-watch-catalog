@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import { Ionicons } from "@expo/vector-icons";
+import StarRating from "react-native-star-rating";
 
 import {
   Container,
@@ -53,35 +53,34 @@ const FavoriteButton = () => {
 };
 
 const StarsRating = () => {
-  const [value, setValue] = useState(0);
+  const [rating, setRating] = useState(0);
+  const [maxStars] = useState(5);
 
-  const [stars] = useState([
-    { active: false, value: 1 },
-    { active: false, value: 2 },
-    { active: false, value: 3 },
-    { active: false, value: 4 },
-    { active: false, value: 5 },
-  ]);
+  const updateRating = (value) => {
+    setRating(value);
+  };
 
-  useEffect(() => {
-    stars.forEach((star) => {
-      if (star.value <= value) {
-        star.active = true;
-      }
-    });
-  }, [value]);
+  const RatingBar = () => {
+    const ratingBar = [];
 
-  return (
-    <StarsContainer>
-      {stars.map((star, index) => (
-        <Star key={index} onPress={() => setValue(star.value)}>
+    for (let key = 1; key <= maxStars; key++) {
+      ratingBar.push(
+        <Star key={key} onPress={() => updateRating(key)}>
           <Ionicons
-            name={star.active ? "ios-star-outline" : "ios-star"}
+            name={key <= rating ? "ios-star" : "ios-star-outline"}
             size={24}
             color="#29A19C"
           />
         </Star>
-      ))}
+      );
+    }
+
+    return ratingBar;
+  };
+
+  return (
+    <StarsContainer>
+      <RatingBar />
     </StarsContainer>
   );
 };
