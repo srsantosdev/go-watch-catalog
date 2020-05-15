@@ -140,8 +140,9 @@ export const Points = styled.Text`
 
 export const MainCast = styled.View``;
 
-export const ContainerCards = styled.View`
+export const ContainerCards = styled.ScrollView`
   margin-top: 10px;
+  flex-direction: row;
 `;
 
 export const ActorCard = styled.View`
@@ -150,9 +151,18 @@ export const ActorCard = styled.View`
   background-color: #141517;
   border-radius: 5px;
   align-items: center;
+  position: relative;
+  margin-right: 10px;
 `;
 
-export const ActorImage = styled.Image``;
+export const ActorImage = styled.View`
+  background-color: #000;
+  width: 100%;
+  height: 126px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-bottom: 12px;
+`;
 
 export const ActorName = styled.Text`
   font-family: "Roboto-Bold";
@@ -205,3 +215,11 @@ export const ContainerFavoriteButton = styled.TouchableOpacity`
   right: 30px;
   top: 600px;
 `;
+
+export const Header = styled.View`
+  position: absolute;
+  z-index: 50;
+  margin: 30px 20px;
+`;
+
+export const BackButton = styled.TouchableOpacity``;

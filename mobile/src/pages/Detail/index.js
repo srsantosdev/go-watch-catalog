@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import StarRating from "react-native-star-rating";
-
+import { useNavigation } from "@react-navigation/native";
 import {
   Container,
   BoxImage,
@@ -36,6 +35,8 @@ import {
   StarsContainer,
   Star,
   ContainerFavoriteButton,
+  Header,
+  BackButton,
 } from "./styles";
 
 const FavoriteButton = () => {
@@ -44,9 +45,9 @@ const FavoriteButton = () => {
   return (
     <ContainerFavoriteButton onPress={() => setFavorite(!favorite)}>
       {favorite ? (
-        <Ionicons name="ios-heart-empty" size={24} color="#fff" />
-      ) : (
         <Ionicons name="ios-heart" size={24} color="#fff" />
+      ) : (
+        <Ionicons name="ios-heart-empty" size={24} color="#fff" />
       )}
     </ContainerFavoriteButton>
   );
@@ -86,8 +87,16 @@ const StarsRating = () => {
 };
 
 const Detail = () => {
+  const navigation = useNavigation();
+
   return (
     <Container>
+      <Header>
+        <BackButton onPress={() => navigation.goBack()}>
+          <Ionicons name="ios-arrow-round-back" size={40} color="#fff" />
+        </BackButton>
+      </Header>
+
       <BoxImage>
         <Image />
       </BoxImage>
@@ -145,7 +154,25 @@ const Detail = () => {
 
         <MainCast>
           <Subtitle>Elenco Principal</Subtitle>
-          <ContainerCards>
+          <ContainerCards
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          >
+            <ActorCard>
+              <ActorImage />
+              <ActorName>Ben Schwartz</ActorName>
+              <CharacterName>Sonic (voz)</CharacterName>
+            </ActorCard>
+            <ActorCard>
+              <ActorImage />
+              <ActorName>Ben Schwartz</ActorName>
+              <CharacterName>Sonic (voz)</CharacterName>
+            </ActorCard>
+            <ActorCard>
+              <ActorImage />
+              <ActorName>Ben Schwartz</ActorName>
+              <CharacterName>Sonic (voz)</CharacterName>
+            </ActorCard>
             <ActorCard>
               <ActorImage />
               <ActorName>Ben Schwartz</ActorName>
