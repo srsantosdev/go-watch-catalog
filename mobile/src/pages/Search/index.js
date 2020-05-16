@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Input from "./../../components/Input";
+import MoviesSeriesSwitch from "./../../components/MoviesSeriesSwitch";
 import {
   Page,
   ContainerItems,
-  ContainerButtonSwitch,
-  ButtonSwitch,
   Item,
   ImageItem,
   ContainerWithItems,
-  ContainerWithoutItems,
+  ContainerWithoutItem,
   Illustration,
   Title,
   Message,
@@ -22,16 +21,16 @@ import {
   Icon,
 } from "./styles";
 
-const WithItems = (items = []) => {
+import illustration from "./../../assets/RoboBuscaSemResultados.png";
+
+const WithItems = ({ items = [] }) => {
+  const [option, setOption] = useState("");
   return (
     <ContainerWithItems>
-      <ContainerButtonSwitch>
-        <ButtonSwitch>Filmes</ButtonSwitch>
-        <ButtonSwitch>Series</ButtonSwitch>
-      </ContainerButtonSwitch>
+      <MoviesSeriesSwitch option={(option) => setOption(option)} />
 
       <ContainerItems>
-        {items.map((_) => (
+        {items.map((item) => (
           <Item>
             <ImageItem />
           </Item>
@@ -43,17 +42,17 @@ const WithItems = (items = []) => {
 
 const WithoutItems = () => {
   return (
-    <ContainerWithoutItems>
-      <Illustration />
+    <ContainerWithoutItem>
+      <Illustration source={illustration} />
       <Title>Oops!</Title>
       <Message>Nada foi encontrado.</Message>
-    </ContainerWithoutItems>
+    </ContainerWithoutItem>
   );
 };
 
 const Search = () => {
   const [search, setSearch] = useState("");
-  const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState([1, 2, 3, 4]);
 
   return (
     <Page>
@@ -74,15 +73,15 @@ const Search = () => {
           onChangeText={(text) => setSearch(text)}
         />
         <Icon>
-          <Ionicons name="ios-search" size={24} color="black" />
+          <Ionicons name="ios-search" size={24} color="#fff" />
         </Icon>
       </ContainerInputSearch>
 
-      {search && options.lenght > 0 ? (
-        <WithItems items={options} />
-      ) : (
-        <WithoutItems />
-      )}
+      <WithItems items={options} />
+      {/* {search && options.lenght > 0 ? (
+        ) : (
+          <WithoutItems />
+      )} */}
     </Page>
   );
 };
