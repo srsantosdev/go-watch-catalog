@@ -1,5 +1,7 @@
 import styled from "styled-components/native";
 
+import { FlatGrid } from "react-native-super-grid";
+
 export const Page = styled.View`
   background-color: #161719;
   width: 100%;
@@ -7,13 +9,14 @@ export const Page = styled.View`
   height: 100%;
 `;
 
-export const ContainerItems = styled.ScrollView``;
+export const Grid = styled(FlatGrid)`
+  margin-bottom: 210px;
+`;
 
-export const Item = styled.View`
-  width: 177px;
+export const Item = styled.TouchableOpacity`
   height: 265px;
   border-radius: 5px;
-  background-color: #000;
+  background-color: #141517;
 `;
 
 export const ImageItem = styled.Image``;

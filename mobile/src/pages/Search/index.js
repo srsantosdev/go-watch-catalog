@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { TouchableOpacity } from "react-native";
+import React, { useState, useEffect } from "react";
+import { TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Input from "./../../components/Input";
 import MoviesSeriesSwitch from "./../../components/MoviesSeriesSwitch";
 import {
   Page,
-  ContainerItems,
+  Grid,
   Item,
   ImageItem,
   ContainerWithItems,
@@ -29,13 +29,17 @@ const WithItems = ({ items = [] }) => {
     <ContainerWithItems>
       <MoviesSeriesSwitch option={(option) => setOption(option)} />
 
-      <ContainerItems>
-        {items.map((item) => (
+      <Grid
+        itemDimension={160}
+        showsVerticalScrollIndicator={false}
+        spacing={5}
+        items={items}
+        renderItem={({ item, index }) => (
           <Item>
             <ImageItem />
           </Item>
-        ))}
-      </ContainerItems>
+        )}
+      />
     </ContainerWithItems>
   );
 };
@@ -50,9 +54,20 @@ const WithoutItems = () => {
   );
 };
 
+const RenderScreen = ({ search = "", options = [] }) => {
+  if (!search && options.length < 0) {
+    return <View />;
+  }
+  if (search && options.length === 0) {
+    return <WithoutItems />;
+  }
+  if (search && options.length > 0) return <WithItems items={options} />;
+  return null;
+};
+
 const Search = () => {
   const [search, setSearch] = useState("");
-  const [options, setOptions] = useState([1, 2, 3, 4]);
+  const [options, setOptions] = useState([]);
 
   return (
     <Page>
@@ -77,11 +92,7 @@ const Search = () => {
         </Icon>
       </ContainerInputSearch>
 
-      <WithItems items={options} />
-      {/* {search && options.lenght > 0 ? (
-        ) : (
-          <WithoutItems />
-      )} */}
+      <RenderScreen options={options} search={search} />
     </Page>
   );
 };

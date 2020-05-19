@@ -6,7 +6,7 @@ export const Container = styled.View`
   width: 200px;
   height: 25px;
   flex-direction: row;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 `;
 
 export const ButtonSwitch = styled.TouchableOpacity`
