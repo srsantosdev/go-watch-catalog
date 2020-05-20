@@ -12,3 +12,15 @@
 </p>
 
 ##
+
+## :computer: Tecnologias
+
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [Expo](https://expo.io/)
+- [React Native](https://reactnative.dev/)
+- [React Navigation](https://reactnavigation.org/)
+- [React Icons](https://react-icons.github.io/)
+
+## :page_with_curl: Projeto
+...
