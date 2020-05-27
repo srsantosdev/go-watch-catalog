@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Input from "./../../components/Input";
+import Header from "./../../components/Header";
 import MoviesSeriesSwitch from "./../../components/MoviesSeriesSwitch";
 import {
   Page,
@@ -13,10 +14,6 @@ import {
   Illustration,
   Title,
   Message,
-  Header,
-  HeaderTitle,
-  ContainerIcons,
-  UserImage,
   ContainerInputSearch,
   Icon,
 } from "./styles";
@@ -71,15 +68,7 @@ const Search = () => {
 
   return (
     <Page>
-      <Header>
-        <HeaderTitle>Buscar</HeaderTitle>
-        <ContainerIcons>
-          <TouchableOpacity>
-            <Ionicons name="ios-notifications-outline" size={30} color="#fff" />
-          </TouchableOpacity>
-          <UserImage />
-        </ContainerIcons>
-      </Header>
+      <Header title="Buscar" />
 
       <ContainerInputSearch>
         <Input

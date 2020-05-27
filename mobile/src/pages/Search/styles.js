@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-
 import { FlatGrid } from "react-native-super-grid";
 
 export const Page = styled.View`
@@ -54,23 +53,6 @@ export const Message = styled.Text`
   letter-spacing: 1.5px;
   color: #29a19c;
 `;
-
-export const Header = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-`;
-
-export const HeaderTitle = styled.Text`
-  color: #fff;
-  font-family: "Roboto-Regular";
-  font-size: 20px;
-`;
-
-export const ContainerIcons = styled.View``;
-
-export const UserImage = styled.View``;
 
 export const ContainerInputSearch = styled.View`
   position: relative;

@@ -1,15 +1,11 @@
 import React from "react";
-import { StatusBar, View } from "react-native";
+import { StatusBar } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import randomColors from "./../../utils/randomColors";
-
+import Header from "./../../components/Header";
 import {
   Container,
-  Header,
-  HeaderTitle,
-  ContainerIcons,
-  UserImage,
   Title,
   ContainerCards,
   AddListCard,
@@ -23,7 +19,6 @@ import {
   ImageMovie,
   Box,
 } from "./styles";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -31,15 +26,7 @@ const Home = () => {
   return (
     <Container>
       <StatusBar barStyle="light-content" backgroundColor="#161719" />
-      <Header>
-        <HeaderTitle>Olá, Kamila!</HeaderTitle>
-        <ContainerIcons>
-          <TouchableOpacity>
-            <Ionicons name="ios-notifications-outline" size={30} color="#fff" />
-          </TouchableOpacity>
-          <UserImage />
-        </ContainerIcons>
-      </Header>
+      <Header title="Olá, Kamila!" />
 
       <Title>Minhas Listas</Title>
 
