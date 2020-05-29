@@ -6,6 +6,8 @@ import Input from "./../../components/Input";
 import Header from "./../../components/Header";
 import Modal from "./../../components/Modal";
 
+import { OK, Cancel } from "./../../components/ConfirmButtons";
+
 import randomColors from "./../../utils/randomColors";
 
 import {
@@ -24,10 +26,6 @@ import {
   Box,
   Title,
   ConfirmButtons,
-  Ok,
-  OkText,
-  Cancel,
-  CancelText,
 } from "./styles";
 
 const NewList = ({ active = false, onClose = () => {} }) => {
@@ -43,12 +41,8 @@ const NewList = ({ active = false, onClose = () => {} }) => {
             <Title>Nova Lista</Title>
             <Input placeholder="Título da Lista" />
             <ConfirmButtons>
-              <Ok onPress={createList}>
-                <OkText>Criar</OkText>
-              </Ok>
-              <Cancel onPress={onClose}>
-                <CancelText>Cancelar</CancelText>
-              </Cancel>
+              <OK onPress={createList}>Criar</OK>
+              <Cancel onPress={onClose}>Cancelar</Cancel>
             </ConfirmButtons>
           </Box>
         </NewListContainer>
