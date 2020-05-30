@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StatusBar } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 import Input from "./../../components/Input";
 import Header from "./../../components/Header";
@@ -52,6 +53,7 @@ const NewList = ({ active = false, onClose = () => {} }) => {
 };
 
 const MyList = () => {
+  const navigation = useNavigation();
   const [newListModal, setNewListModal] = useState(false);
 
   return (
@@ -73,8 +75,11 @@ const MyList = () => {
               <Ionicons name="ios-add" size={24} color="#fff" />
               <AddListCardTitle>Criar Lista</AddListCardTitle>
             </AddListCard>
-            <Card color={randomColors()}>
-              <CardTitle>1</CardTitle>
+            <Card
+              color={randomColors()}
+              onPress={() => navigation.navigate("List")}
+            >
+              <CardTitle>Testeeeeee</CardTitle>
             </Card>
 
             <CardInvisible />
