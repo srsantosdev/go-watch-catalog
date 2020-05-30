@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-// import { Container } from './styles';
+import { Container, OptionsContainer, Option } from "./styles";
 
-const Options = () => {
+const Options = (props) => {
+  const [active, setActive] = useState(false);
+
   return (
     <Container>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => setActive(!active)}>
         <Ionicons name="ios-ellipsis-vertical" size={40} color="#fff" />
       </TouchableOpacity>
-      <OptionsContainer>
-        <Option />
-      </OptionsContainer>
+      {active && (
+        <OptionsContainer>
+          <Option title="Excluir Lista" />
+        </OptionsContainer>
+      )}
     </Container>
   );
 };
