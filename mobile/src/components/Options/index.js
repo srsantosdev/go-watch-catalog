@@ -1,19 +1,36 @@
 import React, { useState } from "react";
-import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { Container, OptionsContainer, Option } from "./styles";
 
-const Options = (props) => {
+import {
+  Container,
+  MoreButton,
+  OptionsContainer,
+  Option,
+  OptionText,
+} from "./styles";
+
+const Options = ({ options = [] }) => {
   const [active, setActive] = useState(false);
 
   return (
     <Container>
-      <TouchableOpacity onPress={() => setActive(!active)}>
-        <Ionicons name="ios-ellipsis-vertical" size={40} color="#fff" />
-      </TouchableOpacity>
+      <MoreButton onPress={() => setActive(!active)}>
+        <Ionicons name={active ? "ios-close" : "md-more"} size={30} color="#fff" />
+      </MoreButton>
+
       {active && (
         <OptionsContainer>
-          <Option title="Excluir Lista" />
+          {options.map(({ name, task }, index) => (
+            <Option
+              key={index}
+              onPress={() => {
+                setActive(false);
+                task();
+              }}
+            >
+              <OptionText>{name}</OptionText>
+            </Option>
+          ))}
         </OptionsContainer>
       )}
     </Container>
