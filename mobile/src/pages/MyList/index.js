@@ -3,11 +3,8 @@ import { StatusBar } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-import Input from "./../../components/Input";
+import NewList from "./../../components/NewList";
 import Header from "./../../components/Header";
-import Modal from "./../../components/Modal";
-
-import { OK, Cancel } from "./../../components/ConfirmButtons";
 
 import randomColors from "./../../utils/randomColors";
 
@@ -23,34 +20,7 @@ import {
   CardTitle,
   CardInvisible,
   ScrollView,
-  NewListContainer,
-  Box,
-  Title,
-  ConfirmButtons,
 } from "./styles";
-
-const NewList = ({ active = false, onClose = () => {} }) => {
-  function createList() {
-    onClose();
-  }
-
-  return (
-    active && (
-      <Modal>
-        <NewListContainer>
-          <Box>
-            <Title>Nova Lista</Title>
-            <Input placeholder="Título da Lista" />
-            <ConfirmButtons>
-              <OK onPress={createList}>Criar</OK>
-              <Cancel onPress={onClose}>Cancelar</Cancel>
-            </ConfirmButtons>
-          </Box>
-        </NewListContainer>
-      </Modal>
-    )
-  );
-};
 
 const MyList = () => {
   const navigation = useNavigation();
