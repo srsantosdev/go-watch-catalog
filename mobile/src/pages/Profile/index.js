@@ -39,7 +39,7 @@ const Profile = () => {
         </Email>
       </InfoBox>
       <Buttons>
-        <Button>
+        <Button onPress={() => navigation.navigate("EditData")}>
           <Ionicons name="md-create" size={25} color="#fff" />
           <ButtonText>Editar Dados</ButtonText>
         </Button>
