@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const LANGUAGE = 'language=pt-BR'
+
 export const tmdb = async () => {
   return await axios.get(`https://api.themoviedb.org/3/`);
 };
