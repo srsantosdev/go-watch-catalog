@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import connection from "./../database/connection";
 
 class SessionController {
-  async create(request: Request, response: Response) {
+  static async create(request: Request, response: Response) {
     try {
       const { username, password } = request.body;
 
@@ -31,7 +31,7 @@ class SessionController {
 
       return response.json({ id: user.id, username, token }).status(200);
     } catch (err) {
-      return response.status(404);
+      return response.status(404).send()
     }
   }
 }

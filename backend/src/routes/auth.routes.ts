@@ -3,8 +3,6 @@ import SessionController from "./../controllers/SessionController";
 
 const routes = Router();
 
-const sessionController = new SessionController();
-
-routes.post("/login", sessionController.create);
+routes.post("/login", SessionController.create);
 
 export default routes;
