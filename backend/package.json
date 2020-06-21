@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --transpileOnly --ignore-watch node_modules src/server.ts",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "knex:migrate-rollback": "knex migrate:rollback --all",
     "knex:seed": "knex --knexfile knexfile.ts seed:run"
   },
   "devDependencies": {

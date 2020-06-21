@@ -3,7 +3,7 @@ import { config } from "dotenv";
 
 config();
 
-export default {
+const configuration = {
   development: {
     client: process.env.DB_CLIENT,
     connection: {
@@ -21,3 +21,5 @@ export default {
     useNullAsDefault: true,
   },
 };
+
+module.exports = configuration;
