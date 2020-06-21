@@ -1,5 +1,7 @@
 import app from "./app";
 
-app.listen(3333, () => {
-  console.log("⚙ Backend started on http://localhost:3333 ");
+app.listen(process.env.PORT, () => {
+  console.log(
+    `⚙ Backend started on http://${process.env.HOST}:${process.env.PORT}`
+  );
 });
