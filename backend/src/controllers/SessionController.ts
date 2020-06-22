@@ -31,7 +31,37 @@ class SessionController {
 
       return response.json({ id: user.id, username, token }).status(200);
     } catch (err) {
-      return response.status(404).send()
+      return response.status(404).send();
+    }
+  }
+
+  static async authManager(request: Request, response: Response) {
+    try {
+      const { id, password } = request.body;
+
+      const [manager] = await connection("managers")
+        .where("id", id)
+        .select(["id", "password"]);
+
+      if (!manager) {
+        return response.status(404).json({ message: "Manager not found!" });
+      }
+
+      if (!(await bcrypt.compare(password, manager.password))) {
+        throw new Error();
+      }
+
+      const token = jwt.sign(
+        {
+          id: manager.id,
+        },
+        String(process.env.SECRET_KEY),
+        { expiresIn: 86400 }
+      );
+
+      return response.json({ id: manager.id, token }).status(200);
+    } catch (err) {
+      return response.status(404).send();
     }
   }
 }
